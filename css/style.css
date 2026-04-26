@@ -51,6 +51,63 @@ nav button {
   padding: 4px;
 }
 
+/* HERO */
+.hero {
+  width: 100%;
+  height: calc(100vh - 57px);
+  position: relative;
+  overflow: hidden;
+  background-color: #D9D9D4;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 120px;
+  left: 35%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hero-text h1 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  color: var(--black);
+  line-height: 1.1;
+}
+
+.hero-text p {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--grey);
+  margin-top: 8px;
+}
+
+.hero-cta {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--black);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  padding: 16px 40px;
+  text-decoration: none;
+  border-radius: 50px;
+}
+
 /* FOOTER */
 footer {
   background-color: var(--black);
@@ -66,4 +123,9 @@ footer {
   font-size: 22px;
   color: white;
   margin-bottom: 8px;
+}
+
+/* MOBILE */
+@media (max-width: 430px) {
+
 }

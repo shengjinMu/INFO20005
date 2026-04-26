@@ -11,10 +11,85 @@
 <body>
 
   <nav>
-    <button id="menu-btn">☰</button>
+    <button id="menu-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
     <a href="index.html">PETHAUS</a>
-    <button>🔍</button>
+    <div class="nav-icons">
+      <button aria-label="Search">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+      <button aria-label="Cart">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </button>
+      <button aria-label="Account">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
   </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="images/hero.png" alt="Dog wearing denim vest" class="hero-img" />
+    <div class="hero-text">
+      <h1>Stylish Essentials for Modern Pets</h1>
+      <p>Thoughtfully made for your pet</p>
+    </div>
+    <div class="hero-cta">
+      <a href="shop.html" class="btn-primary">SHOP NOW</a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <h2 class="section-title">Recommended</h2>
+  <section class="products">
+    <div class="product-card">
+      <div class="product-img">
+        <img src="images/product3.png" alt="Distressed Denim Vest" />
+        <button class="quick-add">+</button>
+      </div>
+      <p class="product-name">Distressed Denim Vest</p>
+      <p class="product-price">$68.00</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="images/product4.png" alt="Tactical Harness Vest" />
+        <button class="quick-add">+</button>
+      </div>
+      <p class="product-name">Tactical Harness Vest</p>
+      <p class="product-price">$72.00</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="images/product5.png" alt="Camo Street Vest" />
+        <button class="quick-add">+</button>
+      </div>
+      <p class="product-name">Camo Street Vest</p>
+      <p class="product-price">$65.00</p>
+    </div>
+  </section>
+
+
+  <footer>
+    <p class="footer-logo">PETHAUS</p>
+    <p>© 2025 PETHAUS. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>

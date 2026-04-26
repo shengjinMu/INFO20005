@@ -17,3 +17,53 @@ body {
   color: var(--black);
   font-family: var(--font-body);
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: var(--bg);
+  border-bottom: 1px solid #E8E8E3;
+  position: relative;
+}
+
+nav a {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  color: var(--black);
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--black);
+  color: var(--grey);
+  text-align: center;
+  padding: 40px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: white;
+  margin-bottom: 8px;
+}

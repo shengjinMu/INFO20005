@@ -119,8 +119,8 @@ nav button {
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 24px 40px;
+  gap: 32px;
+  padding: 24px 120px;
 }
 
 .product-card {
@@ -135,15 +135,13 @@ nav button {
 
 .product-img {
   position: relative;
-  background-color: #EBEBEB;
+  background-color: var(--bg);
 }
 
 .product-img img {
   width: 100%;
-  margin: 0 auto;
-  display: block;
   aspect-ratio: 1;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .quick-add {
@@ -193,16 +191,13 @@ footer {
 .product-detail {
   display: flex;
   gap: 48px;
-  padding: 48px 40px;
+  padding: 16px 40px;
   margin-top: 57px;
+  height: calc(100vh - 57px);
 }
 
 .product-detail-img {
   flex: 0 0 45%;
-  background-color: #EBEBEB;
-  border-radius: 12px;
-  overflow: hidden;
-  max-height: 500px;
 }
 
 .product-detail-img img {

@@ -118,9 +118,9 @@ nav button {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
-  padding: 24px 120px;
+  padding: 24px 40px;
 }
 
 .product-card {

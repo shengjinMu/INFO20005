@@ -128,6 +128,9 @@ nav button {
   border-radius: 12px;
   overflow: hidden;
   padding-bottom: 16px;
+  text-decoration: none;
+  color: var(--black);
+  display: block;
 }
 
 .product-img {

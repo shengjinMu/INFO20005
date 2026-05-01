@@ -51,6 +51,71 @@ nav button {
   padding: 4px;
 }
 
+/* SIDE MENU */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 200;
+}
+
+.menu-overlay.open { display: block; }
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 320px;
+  height: 100%;
+  background: white;
+  z-index: 300;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+}
+
+.side-menu.open { left: 0; }
+
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-bottom: 32px;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav a {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid #E8E8E3;
+  font-size: 18px;
+  color: var(--black);
+  text-decoration: none;
+  position: static;
+  transform: none;
+}
+
+.side-socials {
+  margin-top: auto;
+  display: flex;
+  gap: 24px;
+}
+
+.side-socials a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 14px;
+}
+
 /* HERO */
 .hero {
   width: 100%;

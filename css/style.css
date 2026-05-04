@@ -381,8 +381,8 @@ footer {
 .cart-item img {
   width: 100px;
   height: 100px;
-  object-fit: contain;
-  background-color: #EBEBEB;
+  object-fit: cover;
+  background-color: var(--bg);
   border-radius: 8px;
 }
 

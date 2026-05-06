@@ -432,6 +432,85 @@ footer {
   font-size: 24px;
 }
 
+/* CHECKOUT */
+.checkout-page {
+  margin-top: 57px;
+  padding: 40px;
+}
+
+.checkout-layout {
+  display: flex;
+  gap: 48px;
+  margin-top: 24px;
+}
+
+.checkout-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.checkout-form input {
+  padding: 12px;
+  border: 1px solid #E8E8E3;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: white;
+  width: 100%;
+}
+
+.checkout-row {
+  display: flex;
+  gap: 16px;
+}
+
+.checkout-row div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-summary {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.checkout-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.checkout-item p {
+  font-size: 13px;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #E8E8E3;
+  padding-top: 16px;
+  font-weight: 600;
+}
+
 /* MOBILE */
 @media (max-width: 430px) {
   nav {

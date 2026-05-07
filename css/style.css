@@ -511,6 +511,65 @@ footer {
   font-weight: 600;
 }
 
+/* CONFIRMATION */
+.confirmation-page {
+  margin-top: 57px;
+  display: flex;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.confirmation-box {
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.confirm-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.confirmation-box h1 {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  color: #2e7d32;
+}
+
+.confirmation-box p {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--grey);
+}
+
+.confirmation-details {
+  width: 100%;
+  border: 1px solid #E8E8E3;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  margin-top: 8px;
+}
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.confirm-total {
+  border-top: 1px solid #E8E8E3;
+  padding-top: 12px;
+  font-weight: 700;
+}
+
 /* MOBILE */
 @media (max-width: 430px) {
   nav {

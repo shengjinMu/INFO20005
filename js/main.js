@@ -34,6 +34,18 @@ function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+function updateCartBadge() {
+  const cart = getCart();
+  const total = cart.reduce((sum, item) => sum + item.qty, 0);
+  const badge = document.getElementById('cart-badge');
+  if (badge) {
+    badge.textContent = total;
+    badge.style.display = total > 0 ? 'flex' : 'none';
+  }
+}
+
+updateCartBadge();
+
 function addToCart(id, name, price, image) {
   const cart = getCart();
   const existing = cart.find(item => item.id === id);

@@ -28,12 +28,13 @@
           <line x1="16.5" y1="16.5" x2="22" y2="22"/>
         </svg>
       </button>
-      <button aria-label="Cart" onclick="window.location.href='cart.html'">
+      <button aria-label="Cart" onclick="window.location.href='cart.html'" style="position:relative">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
           <path d="M16 10a4 4 0 01-8 0"/>
         </svg>
+        <span id="cart-badge" style="display:none;position:absolute;top:-4px;right:-6px;background:#0A0A0A;color:white;font-size:10px;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;"></span>
       </button>
       <button aria-label="Account">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

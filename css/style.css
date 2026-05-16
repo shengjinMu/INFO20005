@@ -237,6 +237,17 @@ nav button {
   text-align: center;
 }
 
+.price-original {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+
+.price-sale {
+  color: #CC3333;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
 /* FOOTER */
 footer {
   background-color: var(--black);

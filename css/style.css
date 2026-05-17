@@ -173,6 +173,52 @@ nav button {
   border-radius: 50px;
 }
 
+/* SEARCH */
+.search-overlay {
+  display: none;
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 16px 24px;
+  border-bottom: 1px solid #E8E8E3;
+  z-index: 100;
+}
+
+.search-overlay.open { display: block; }
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #E8E8E3;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+}
+
+.search-results {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--black);
+  font-size: 14px;
+}
+
+.search-result-item:hover { background: var(--bg); }
+
+.search-result-price { color: var(--grey); }
+
 /* PRODUCTS */
 .section-title {
   font-family: var(--font-heading);

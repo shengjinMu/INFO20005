@@ -188,6 +188,19 @@ nav button {
 
 .search-overlay.open { display: block; }
 
+.search-backdrop {
+  display: none;
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 99;
+}
+
+.search-backdrop.open { display: block; }
+
 .search-input {
   width: 100%;
   padding: 12px;

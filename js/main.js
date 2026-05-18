@@ -56,16 +56,31 @@ searchOverlay.className = 'search-overlay';
 searchOverlay.innerHTML = `<input class="search-input" id="search-input" type="text" placeholder="Search products..." /><div class="search-results" id="search-results"></div>`;
 document.body.appendChild(searchOverlay);
 
+const searchBackdrop = document.createElement('div');
+searchBackdrop.className = 'search-backdrop';
+document.body.appendChild(searchBackdrop);
+
 const searchBtn = document.querySelector('button[aria-label="Search"]');
 const searchInput = document.getElementById('search-input');
 const searchResults = document.getElementById('search-results');
 
+function closeSearch() {
+  searchOverlay.classList.remove('open');
+  searchBackdrop.classList.remove('open');
+  searchResults.innerHTML = '';
+  searchInput.value = '';
+}
+
 if (searchBtn) {
   searchBtn.addEventListener('click', () => {
-    searchOverlay.classList.toggle('open');
-    if (searchOverlay.classList.contains('open')) searchInput.focus();
+    const isOpen = searchOverlay.classList.toggle('open');
+    searchBackdrop.classList.toggle('open', isOpen);
+    if (isOpen) searchInput.focus();
+    else closeSearch();
   });
 }
+
+searchBackdrop.addEventListener('click', closeSearch);
 
 searchInput.addEventListener('input', () => {
   const q = searchInput.value.toLowerCase();
@@ -78,12 +93,6 @@ searchInput.addEventListener('input', () => {
     a.innerHTML = `<span>${p.name}</span><span class="search-result-price">${p.price}</span>`;
     searchResults.appendChild(a);
   });
-});
-
-document.addEventListener('click', e => {
-  if (!searchOverlay.contains(e.target) && searchBtn && !searchBtn.contains(e.target)) {
-    searchOverlay.classList.remove('open');
-  }
 });
 
 // Cart

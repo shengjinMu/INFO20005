@@ -79,23 +79,20 @@
       </form>
 
       <div class="checkout-summary">
-        <div class="checkout-item">
-          <img src="images/product4.png" alt="Tactical Harness Vest" />
-          <div>
-            <p>Tactical Harness Vest (M)</p>
-            <p>$72.00</p>
+        <div id="checkout-items"></div>
+        <div class="checkout-totals">
+          <div class="checkout-total-row">
+            <p>Subtotal</p>
+            <p id="checkout-subtotal">$0.00</p>
           </div>
-        </div>
-        <div class="checkout-item">
-          <img src="images/product6.png" alt="Quilted Puffer Vest" />
-          <div>
-            <p>Quilted Puffer Vest (L)</p>
-            <p>$75.00</p>
+          <div class="checkout-total-row">
+            <p>Shipping</p>
+            <p id="checkout-shipping">FREE</p>
           </div>
-        </div>
-        <div class="checkout-total">
-          <p>Total</p>
-          <p>$147.00 AUD</p>
+          <div class="checkout-total-row checkout-grand-total">
+            <p>Total</p>
+            <p id="checkout-total-amount">$0.00 AUD</p>
+          </div>
         </div>
       </div>
     </div>
@@ -108,5 +105,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
 </body>
 </html>

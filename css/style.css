@@ -334,27 +334,31 @@ footer {
 /* PRODUCT DETAIL */
 .product-detail {
   display: flex;
-  gap: 48px;
-  padding: 16px 40px;
+  gap: 32px;
+  padding: 24px 40px;
   margin-top: 57px;
-  height: calc(100vh - 57px);
+  align-items: flex-start;
 }
 
 .product-detail-img {
-  flex: 0 0 45%;
+  flex: 0 0 58%;
+  height: 620px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .product-detail-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center 40%;
 }
 
 .product-detail-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .product-detail-info h1 {
@@ -425,9 +429,87 @@ footer {
   display: inline-block;
 }
 
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #D0D0D0;
+  border-radius: 6px;
+  width: 140px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  flex: 1;
+  height: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#qty-value {
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  border-left: 1px solid #E8E8E3;
+  border-right: 1px solid #E8E8E3;
+}
+
+.product-detail-info .btn-primary {
+  width: 100%;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 16px;
+  padding: 18px;
+}
+
 .shipping-note {
   font-size: 12px;
   color: var(--grey);
+}
+
+.accordion-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px solid #E8E8E3;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+  padding: 12px 0;
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.size-table th, .size-table td {
+  border: 1px solid #E8E8E3;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.size-table th {
+  font-weight: 600;
+  background-color: var(--bg);
 }
 
 /* CART */

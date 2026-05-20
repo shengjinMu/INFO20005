@@ -6,11 +6,12 @@ document.querySelectorAll('.size-options button').forEach(btn => {
   });
 });
 
-// Colour selection
-document.querySelectorAll('.colour-btn').forEach(btn => {
+// Accordion
+document.querySelectorAll('.accordion-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.colour-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.toggle('open');
+    btn.querySelector('span').textContent = isOpen ? '−' : '+';
   });
 });
 
@@ -31,7 +32,6 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 // Add to cart
 document.querySelector('.btn-primary').addEventListener('click', () => {
   const size = document.querySelector('.size-options .selected')?.textContent || 'M';
-  const colour = document.querySelector('.colour-btn.selected')?.textContent.trim() || 'Grey';
-  addToCart('product4', `Tactical Harness Vest (${size} / ${colour})`, 72, 'images/product4.png');
+  addToCart('product4', `Tactical Harness Vest (${size})`, 72, 'images/product4.png');
   window.location.href = 'cart.html';
 });

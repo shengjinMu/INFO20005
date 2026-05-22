@@ -35,6 +35,7 @@ function changeQty(index, delta) {
   if (cart[index].qty <= 0) cart.splice(index, 1);
   saveCart(cart);
   renderCart();
+  updateCartBadge();
 }
 
 function removeItem(index) {
@@ -42,6 +43,7 @@ function removeItem(index) {
   cart.splice(index, 1);
   saveCart(cart);
   renderCart();
+  updateCartBadge();
 }
 
 renderCart();

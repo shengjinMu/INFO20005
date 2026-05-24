@@ -4,10 +4,18 @@ function renderCart() {
   const totalEl = document.getElementById('cart-total');
 
   if (cart.length === 0) {
-    container.innerHTML = '<p style="color:#6F6F6F;">Your cart is empty.</p>';
-    totalEl.textContent = '$0.00 AUD';
+    container.innerHTML = `
+      <div class="cart-empty">
+        <p class="cart-empty-title">Your cart is empty</p>
+        <a href="index.html" class="btn-primary">Continue Shopping</a>
+      </div>
+    `;
+    document.querySelector('.cart-summary').style.display = 'none';
+    document.getElementById('cart-title').style.display = 'none';
     return;
   }
+  document.querySelector('.cart-summary').style.display = '';
+  document.getElementById('cart-title').style.display = '';
 
   container.innerHTML = cart.map((item, index) => `
     <div class="cart-item">

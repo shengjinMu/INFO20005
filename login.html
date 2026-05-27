@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PETHAUS — Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <button id="menu-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="index.html">PETHAUS</a>
+    <div class="nav-icons">
+      <button aria-label="Search">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+      <button aria-label="Cart" onclick="window.location.href='cart.html'" style="position:relative">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span id="cart-badge" style="display:none;position:absolute;top:-4px;right:-6px;background:#0A0A0A;color:white;font-size:10px;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;"></span>
+      </button>
+      <button aria-label="Account" onclick="window.location.href='login.html'">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="side-menu" id="side-menu">
+    <button class="menu-close" id="menu-close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="side-nav">
+      <a href="dogwear.html">Dogwear</a>
+      <a href="walk.html">Walk</a>
+      <a href="home.html">Home</a>
+      <a href="sale.html">Last Sizes - Final Sale</a>
+      <a href="#">About</a>
+    </div>
+    <div class="side-socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <main class="login-page">
+    <div class="login-box">
+
+      <div class="login-tabs">
+        <button class="login-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+        <button class="login-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- SIGN IN -->
+      <form class="login-form" id="form-login">
+        <h1 class="login-title">Welcome back</h1>
+        <label>Email</label>
+        <input type="email" placeholder="example@email.com" />
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" />
+        <button type="button" class="btn-primary">SIGN IN</button>
+        <p class="login-footer-text">Forgot your password? <a href="#">Reset here</a></p>
+      </form>
+
+      <!-- REGISTER -->
+      <form class="login-form" id="form-register" style="display:none">
+        <h1 class="login-title">Create account</h1>
+        <label>Full Name</label>
+        <input type="text" placeholder="Your Name" />
+        <label>Email</label>
+        <input type="email" placeholder="example@email.com" />
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" />
+        <label>Confirm Password</label>
+        <input type="password" placeholder="••••••••" />
+        <button type="button" class="btn-primary">CREATE ACCOUNT</button>
+      </form>
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-logo">PETHAUS</p>
+    <p>© 2026 PETHAUS. All rights reserved by Shengjin.</p>
+    <p>Student Project</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function switchTab(tab) {
+      document.getElementById('form-login').style.display = tab === 'login' ? 'flex' : 'none';
+      document.getElementById('form-register').style.display = tab === 'register' ? 'flex' : 'none';
+      document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+      document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+    }
+  </script>
+</body>
+</html>

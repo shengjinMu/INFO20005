@@ -342,6 +342,149 @@ nav button {
   background: rgba(245, 245, 240, 0.55);
 }
 
+/* LOGIN PAGE */
+.login-page {
+  min-height: calc(100vh - 57px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-tabs {
+  display: flex;
+  border-bottom: 1px solid #E8E8E3;
+  margin-bottom: 36px;
+}
+
+.login-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.login-tab.active {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-title {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.login-form label {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--grey);
+  margin-top: 6px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #E8E8E3;
+  background: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: var(--black);
+}
+
+.login-form .btn-primary {
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  font-size: 13px;
+  padding: 16px;
+}
+
+.login-footer-text {
+  text-align: center;
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 8px;
+}
+
+.login-footer-text a {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+/* HOME FEATURES STRIP */
+.home-features {
+  display: flex;
+  justify-content: space-around;
+  padding: 56px 40px;
+  background-color: #EBEBEA;
+  text-align: center;
+}
+
+.home-feature-item {
+  max-width: 200px;
+}
+
+.home-feature-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  margin: 12px 0 6px;
+}
+
+.home-feature-desc {
+  font-size: 12px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* BRAND STATEMENT */
+.brand-statement {
+  background-color: var(--black);
+  color: white;
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.brand-statement-text {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.brand-statement-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+}
+
 /* FOOTER */
 footer {
   background-color: var(--black);

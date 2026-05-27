@@ -67,6 +67,26 @@
 
   <main class="shop-page">
     <h1 class="section-title">All Products</h1>
+    <div class="filter-bar">
+      <div class="filter-left">
+        <span class="filter-label">Filter:</span>
+        <select class="filter-select" id="price-filter">
+          <option value="">Price</option>
+          <option value="under50">Under $50</option>
+          <option value="50to80">$50 – $80</option>
+          <option value="over80">Over $80</option>
+        </select>
+      </div>
+      <div class="filter-right">
+        <span class="filter-label">Sort by:</span>
+        <select class="filter-select" id="sort-select">
+          <option value="default">Relevance</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+        <span class="filter-count" id="product-count"></span>
+      </div>
+    </div>
     <div class="products">
       <a href="product.html" class="product-card">
         <div class="product-img">
@@ -246,5 +266,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 </html>

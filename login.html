@@ -56,7 +56,7 @@
       <a href="walk.html">Walk</a>
       <a href="home.html">Home</a>
       <a href="sale.html">Last Sizes - Final Sale</a>
-      <a href="#">About</a>
+      <a href="story.html">About</a>
     </div>
     <div class="side-socials">
       <a href="#">Facebook</a>
@@ -74,18 +74,15 @@
 
       <!-- SIGN IN -->
       <form class="login-form" id="form-login">
-        <h1 class="login-title">Welcome back</h1>
         <label>Email</label>
         <input type="email" placeholder="example@email.com" />
         <label>Password</label>
         <input type="password" placeholder="••••••••" />
-        <button type="button" class="btn-primary">SIGN IN</button>
-        <p class="login-footer-text">Forgot your password? <a href="#">Reset here</a></p>
+        <button type="button" class="btn-primary" id="signin-btn">SIGN IN</button>
       </form>
 
       <!-- REGISTER -->
       <form class="login-form" id="form-register" style="display:none">
-        <h1 class="login-title">Create account</h1>
         <label>Full Name</label>
         <input type="text" placeholder="Your Name" />
         <label>Email</label>
@@ -94,7 +91,7 @@
         <input type="password" placeholder="••••••••" />
         <label>Confirm Password</label>
         <input type="password" placeholder="••••••••" />
-        <button type="button" class="btn-primary">CREATE ACCOUNT</button>
+        <button type="button" class="btn-primary" id="register-btn">CREATE ACCOUNT</button>
       </form>
 
     </div>
@@ -114,6 +111,16 @@
       document.getElementById('tab-login').classList.toggle('active', tab === 'login');
       document.getElementById('tab-register').classList.toggle('active', tab === 'register');
     }
+
+    document.getElementById('signin-btn').addEventListener('click', function() {
+      this.textContent = 'SIGNED IN ✓';
+      setTimeout(() => window.location.href = 'index.html', 800);
+    });
+
+    document.getElementById('register-btn').addEventListener('click', function() {
+      this.textContent = 'ACCOUNT CREATED ✓';
+      setTimeout(() => window.location.href = 'index.html', 800);
+    });
   </script>
 </body>
 </html>

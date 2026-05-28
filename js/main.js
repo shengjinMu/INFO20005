@@ -116,13 +116,13 @@ function updateCartBadge() {
 
 updateCartBadge();
 
-function addToCart(id, name, price, image) {
+function addToCart(id, name, price, image, qty = 1) {
   const cart = getCart();
   const existing = cart.find(item => item.id === id);
   if (existing) {
-    existing.qty += 1;
+    existing.qty += qty;
   } else {
-    cart.push({ id, name, price, image, qty: 1 });
+    cart.push({ id, name, price, image, qty });
   }
   saveCart(cart);
 }

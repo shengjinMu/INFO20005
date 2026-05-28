@@ -33,9 +33,7 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 });
 
 document.querySelector('.btn-primary').addEventListener('click', () => {
-  for (let i = 0; i < qty; i++) {
-    addToCart('jumper1', `Classic Knit Jumper (${selectedSize})`, 55, 'images/jumper1.png');
-  }
+  addToCart('jumper1', `Classic Knit Jumper (${selectedSize})`, 55, 'images/jumper1.png', qty);
   window.location.href = 'cart.html';
 });
 

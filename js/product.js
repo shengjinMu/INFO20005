@@ -32,6 +32,6 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 // Add to cart
 document.querySelector('.btn-primary').addEventListener('click', () => {
   const size = document.querySelector('.size-options .selected')?.textContent || 'M';
-  addToCart('product4', `Tactical Harness Vest (${size})`, 72, 'images/product4.png');
+  addToCart('product4', `Tactical Harness Vest (${size})`, 72, 'images/product4.png', qty);
   window.location.href = 'cart.html';
 });

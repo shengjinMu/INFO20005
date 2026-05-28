@@ -7,11 +7,16 @@ function renderCart() {
     container.innerHTML = `
       <div class="cart-empty">
         <p class="cart-empty-title">Your cart is empty</p>
-        <a href="index.html" class="btn-primary">Continue Shopping</a>
+        <a href="index.html" class="btn-primary cart-empty-btn">Continue Shopping</a>
+        <div class="cart-empty-account">
+          <p class="cart-empty-account-title">Have an account?</p>
+          <p class="cart-empty-account-sub"><a href="login.html">Log in</a> to check out faster.</p>
+        </div>
       </div>
     `;
     document.querySelector('.cart-summary').style.display = 'none';
     document.getElementById('cart-title').style.display = 'none';
+    
     return;
   }
   document.querySelector('.cart-summary').style.display = '';

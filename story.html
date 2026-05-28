@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PETHAUS — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <button id="menu-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="index.html">PETHAUS</a>
+    <div class="nav-icons">
+      <button aria-label="Search">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+      <button aria-label="Cart" onclick="window.location.href='cart.html'" style="position:relative">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span id="cart-badge" style="display:none;position:absolute;top:-4px;right:-6px;background:#0A0A0A;color:white;font-size:10px;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;"></span>
+      </button>
+      <button aria-label="Account" onclick="window.location.href='login.html'">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="side-menu" id="side-menu">
+    <button class="menu-close" id="menu-close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="side-nav">
+      <a href="dogwear.html">Dogwear</a>
+      <a href="walk.html">Walk</a>
+      <a href="home.html">Home</a>
+      <a href="sale.html">Last Sizes - Final Sale</a>
+      <a href="story.html">About</a>
+    </div>
+    <div class="side-socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <main class="story-page">
+
+    <div class="story-hero">
+      <h1 class="story-heading">Dogwear with standards.<br>Designed for modern pets.</h1>
+    </div>
+
+    <div class="story-content">
+
+      <div class="story-section">
+        <p class="story-label">What is PETHAUS?</p>
+        <p class="story-body">PETHAUS is a pet clothing and accessories website designed for dogs and the people who care about them. The aim of the project was to create a shopping experience that feels clean, modern, and easy to use, while still showing a strong visual identity.</p>
+        <p class="story-body">This website was developed as part of the INFO20005 Web Design course at the University of Melbourne. Across the semester, the project moved through three main stages: analysing a poorly designed website, creating a high-fidelity prototype, and then building the final version with HTML, CSS, and JavaScript.</p>
+      </div>
+
+      <hr class="story-divider" />
+
+      <div class="story-section">
+        <p class="story-label">Assignment 1 — Critique</p>
+        <p class="story-body">The first stage focused on analysing an existing website with poor design. I looked at issues such as unclear navigation, weak visual hierarchy, inconsistent layout, and confusing user flow.</p>
+        <p class="story-body">This helped me understand what makes a website difficult to use. These findings then influenced the direction of PETHAUS, especially the focus on clarity, simple interactions, and a more polished visual style.</p>
+      </div>
+
+      <hr class="story-divider" />
+
+      <div class="story-section">
+        <p class="story-label">Assignment 2 — Prototype</p>
+        <p class="story-body">In the second stage, I created a Figma prototype for the PETHAUS website. This included key pages such as the homepage, product pages, cart, checkout, login, and register screens.</p>
+        <p class="story-body">The prototype helped me test the layout, typography, colour palette, and overall user journey before moving into code. It also acted as a clear design guide when building the final website.</p>
+      </div>
+
+      <hr class="story-divider" />
+
+      <div class="story-section">
+        <p class="story-label">Assignment 3 — Implementation</p>
+        <p class="story-body">The final stage was turning the Figma prototype into a working website using vanilla HTML, CSS, and JavaScript.</p>
+        <p class="story-body">The website includes features such as a persistent cart using localStorage, product image sliders, price filtering and sorting, login and register pages, and a responsive layout for different screen sizes.</p>
+        <p class="story-body">Overall, PETHAUS shows the full process from design critique to prototype to implementation. It started as a response to poor web design, and gradually developed into a more complete and usable e-commerce website.</p>
+      </div>
+
+      <hr class="story-divider" />
+
+      <div class="story-section">
+        <p class="story-body">A big thank you to our lecturer Arzoo, my tutor Saifullah, and all the Teaching Assistants. This subject was genuinely enjoyable, and I'm grateful for all the guidance and support during this semester.</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p class="footer-logo">PETHAUS</p>
+    <p>© 2026 PETHAUS. All rights reserved by Shengjin.</p>
+    <p>Student Project</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

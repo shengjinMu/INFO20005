@@ -1232,7 +1232,111 @@ footer {
 }
 
 /* MOBILE */
-@media (max-width: 430px) {
+/* ── HERO (≤ 1100px) — text + button stop clipping / overlapping ── */
+@media (max-width: 1100px) {
+  .hero-text {
+    left: 50%;
+    white-space: normal;
+    width: 76%;
+    max-width: none;
+    bottom: 120px;
+  }
+
+  .hero-cta {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 40px;
+  }
+}
+
+/* ── TABLET (≤ 768px) ── */
+@media (max-width: 768px) {
+
+  /* Hero text: narrower width at tablet */
+  .hero-text {
+    width: 80%;
+  }
+
+  /* Product detail: stack vertically */
+  .product-detail {
+    flex-direction: column;
+    padding: 24px 24px;
+    gap: 24px;
+  }
+
+  .product-detail-img {
+    flex: none;
+    width: 100%;
+    height: 420px;
+  }
+
+  .product-detail-info {
+    width: 100%;
+  }
+
+  /* Cart: stack */
+  .cart-layout {
+    flex-direction: column;
+  }
+
+  .cart-summary {
+    width: 100%;
+  }
+
+  /* Checkout: stack */
+  .checkout-layout {
+    flex-direction: column;
+  }
+
+  /* Products: 2 columns */
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px 24px;
+    gap: 16px;
+  }
+
+  /* Features strip: 2x2 */
+  .features {
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 40px 24px;
+  }
+
+  .feature-item {
+    flex: 1 1 40%;
+  }
+
+  /* Brand statement */
+  .brand-statement-text {
+    font-size: 26px;
+  }
+
+  /* Story page */
+  .story-page {
+    padding: 48px 24px;
+  }
+
+  .story-heading {
+    font-size: 36px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: 0 24px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Cart page */
+  .cart-page {
+    padding: 24px;
+  }
+}
+
+/* ── MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+
   nav {
     padding: 12px 16px;
   }
@@ -1241,27 +1345,178 @@ footer {
     font-size: 22px;
   }
 
+  /* Hero */
   .hero-text h1 {
-    font-size: 28px;
+    font-size: 24px;
+  }
+
+  .hero-text p {
+    font-size: 12px;
   }
 
   .hero-text {
     left: 50%;
     bottom: 100px;
+    white-space: normal;
+    width: 75%;
+    max-width: none;
   }
 
+  .hero-cta {
+    font-size: 13px;
+    padding: 12px 28px;
+    bottom: 28px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  /* Products: 2 columns */
   .products {
     grid-template-columns: repeat(2, 1fr);
-    padding: 16px 16px;
-    gap: 12px;
+    padding: 12px 16px;
+    gap: 10px;
   }
 
   .section-title {
-    padding: 32px 16px 0;
+    padding: 24px 16px 0;
+    font-size: 20px;
+  }
+
+  /* Product detail */
+  .product-detail {
+    padding: 16px;
+  }
+
+  .product-detail-img {
+    height: 300px;
+  }
+
+  .product-detail h1 {
     font-size: 22px;
+  }
+
+  /* Size options */
+  .size-options {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Cart */
+  .cart-page {
+    padding: 16px;
+  }
+
+  .cart-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Checkout */
+  .checkout-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Login */
+  .login-page {
+    padding: 40px 16px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Story */
+  .story-page {
+    padding: 40px 16px;
+  }
+
+  .story-heading {
+    font-size: 28px;
+  }
+
+  .story-label {
+    font-size: 13px;
+  }
+
+  /* Category cover */
+  .category-cover {
+    height: 380px;
+  }
+
+  /* Features */
+  .features {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 24px;
+  }
+
+  /* Cart empty */
+  .cart-empty {
+    padding: 60px 0;
+  }
+
+  /* Brand statement */
+  .brand-statement {
+    padding: 56px 24px;
+  }
+
+  .brand-statement-text {
+    font-size: 22px;
+  }
+
+  .brand-statement-sub {
+    font-size: 13px;
+  }
+
+  /* Home features */
+  .home-features {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    gap: 28px;
   }
 
   footer {
     padding: 24px 16px;
+  }
+}
+
+/* ── DESKTOP (≥ 1200px) ── */
+@media (min-width: 1200px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 24px 60px;
+    gap: 32px;
+  }
+
+  .section-title {
+    padding: 48px 60px 0;
+  }
+
+  .filter-bar {
+    padding: 0 60px;
+  }
+
+  .cart-page,
+  .checkout-page {
+    padding: 32px 60px 60px;
+  }
+
+  .product-detail {
+    padding: 32px 60px;
+  }
+
+  .brand-statement {
+    padding: 100px 60px;
+  }
+
+  .brand-statement-text {
+    font-size: 42px;
   }
 }

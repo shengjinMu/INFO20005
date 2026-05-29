@@ -6,6 +6,11 @@ function initFilter() {
   const grid = document.querySelector('.products');
 
   function getPrice(card) {
+    const saleEl = card.querySelector('.price-sale');
+    if (saleEl) {
+      const nums = saleEl.textContent.match(/\d+(\.\d+)?/g);
+      return nums ? parseFloat(nums[0]) : 0;
+    }
     const text = card.querySelector('.product-price').textContent;
     const nums = text.match(/\d+(\.\d+)?/g);
     return nums ? parseFloat(nums[0]) : 0;

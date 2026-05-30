@@ -89,6 +89,14 @@
             <p>Shipping</p>
             <p id="checkout-shipping">FREE</p>
           </div>
+          <div class="checkout-total-row">
+            <p>Promo code</p>
+            <button class="promo-toggle" id="promo-toggle">+ Apply</button>
+          </div>
+          <div class="promo-input-area" id="promo-input-area">
+            <input type="text" class="promo-input" id="promo-input" placeholder="Enter code" />
+            <button class="promo-apply-btn" id="promo-apply-btn">Apply</button>
+          </div>
           <div class="checkout-total-row checkout-grand-total">
             <p>Total</p>
             <p id="checkout-total-amount">$0.00 AUD</p>
@@ -106,5 +114,28 @@
 
   <script src="js/main.js"></script>
   <script src="js/checkout.js"></script>
+  <script>
+    document.getElementById('promo-toggle').addEventListener('click', function() {
+      const area = document.getElementById('promo-input-area');
+      area.classList.toggle('open');
+      if (area.classList.contains('open')) {
+        document.getElementById('promo-input').focus();
+      }
+    });
+
+    document.getElementById('promo-apply-btn').addEventListener('click', function() {
+      const btn = this;
+      btn.textContent = 'Applied ✓';
+      btn.style.background = '#2e7d32';
+      setTimeout(() => {
+        btn.textContent = 'Apply';
+        btn.style.background = 'var(--black)';
+        document.getElementById('promo-input-area').classList.remove('open');
+        document.getElementById('promo-toggle').textContent = '✓ Code applied';
+        document.getElementById('promo-toggle').style.color = '#2e7d32';
+        document.getElementById('promo-toggle').style.textDecoration = 'none';
+      }, 1000);
+    });
+  </script>
 </body>
 </html>

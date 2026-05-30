@@ -720,6 +720,12 @@ footer {
   padding: 12px 0;
 }
 
+.accordion-content p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--black);
+}
+
 .accordion-content.open {
   display: block;
 }
@@ -1091,7 +1097,7 @@ footer {
   flex: 0 0 300px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   align-self: flex-start;
   padding-top: 28px;
 }
@@ -1100,7 +1106,7 @@ footer {
   display: flex;
   gap: 12px;
   align-items: center;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
   border-bottom: 1px solid #E8E8E3;
 }
 
@@ -1156,8 +1162,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-top: 1px solid #E8E8E3;
-  padding-top: 16px;
+  padding-top: 0;
 }
 
 .checkout-total-row {
@@ -1170,7 +1175,52 @@ footer {
   font-weight: 700;
   font-size: 20px;
   border-top: 1px solid #E8E8E3;
-  padding-top: 10px;
+  padding-top: 14px;
+}
+
+/* PROMO CODE */
+.promo-toggle {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--grey);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.promo-input-area {
+  display: none;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.promo-input-area.open {
+  display: flex;
+}
+
+.promo-input {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid #E8E8E3;
+  font-family: var(--font-body);
+  font-size: 13px;
+  outline: none;
+}
+
+.promo-input:focus {
+  border-color: var(--black);
+}
+
+.promo-apply-btn {
+  padding: 9px 16px;
+  background: var(--black);
+  color: white;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
 }
 
 /* CONFIRMATION */

@@ -44,7 +44,9 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 
 // Add to cart
 document.querySelector('.btn-primary').addEventListener('click', () => {
-  const size = document.querySelector('.size-options .selected')?.textContent || 'M';
+  const sizeBtn = document.querySelector('.size-options .selected');
+  if (!sizeBtn) { alert('Please select a size.'); return; }
+  const size = sizeBtn.textContent;
   addToCart('product3', `Distressed Denim Vest (${size})`, 68, 'images/product3.png', qty);
-  window.location.href = 'cart.html';
+  showCartModal(`Distressed Denim Vest (${size})`);
 });

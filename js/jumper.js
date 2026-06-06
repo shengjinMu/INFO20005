@@ -33,8 +33,11 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 });
 
 document.querySelector('.btn-primary').addEventListener('click', () => {
-  addToCart('jumper1', `Classic Knit Jumper (${selectedSize})`, 55, 'images/jumper1.png', qty);
-  window.location.href = 'cart.html';
+  const sizeBtn = document.querySelector('.size-options .selected');
+  if (!sizeBtn) { alert('Please select a size.'); return; }
+  const size = sizeBtn.textContent;
+  addToCart('jumper1', `Classic Knit Jumper (${size})`, 55, 'images/jumper1.png', qty);
+  showCartModal(`Classic Knit Jumper (${size})`);
 });
 
 document.querySelectorAll('.accordion-btn').forEach(btn => {

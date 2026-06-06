@@ -126,3 +126,31 @@ function addToCart(id, name, price, image, qty = 1) {
   }
   saveCart(cart);
 }
+
+// Cart added modal
+const cartModalOverlay = document.createElement('div');
+cartModalOverlay.className = 'cart-modal-overlay';
+cartModalOverlay.innerHTML = `
+  <div class="cart-modal">
+    <p class="cart-modal-check">✓</p>
+    <p class="cart-modal-title">Added to cart</p>
+    <p class="cart-modal-item" id="cart-modal-item"></p>
+    <div class="cart-modal-actions">
+      <button class="cart-modal-continue">Continue Shopping</button>
+      <button class="cart-modal-view">View Cart</button>
+    </div>
+  </div>
+`;
+document.body.appendChild(cartModalOverlay);
+cartModalOverlay.querySelector('.cart-modal-continue').addEventListener('click', () => {
+  cartModalOverlay.classList.remove('open');
+});
+cartModalOverlay.querySelector('.cart-modal-view').addEventListener('click', () => {
+  window.location.href = 'cart.html';
+});
+
+function showCartModal(name) {
+  document.getElementById('cart-modal-item').textContent = name;
+  cartModalOverlay.classList.add('open');
+  updateCartBadge();
+}

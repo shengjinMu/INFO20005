@@ -1223,6 +1223,64 @@ footer {
   cursor: pointer;
 }
 
+/* CART MODAL */
+.cart-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+.cart-modal-overlay.open {
+  display: flex;
+}
+.cart-modal {
+  background: var(--bg);
+  padding: 36px 32px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+}
+.cart-modal-check {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.cart-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.cart-modal-item {
+  font-size: 13px;
+  color: var(--grey);
+  margin-bottom: 24px;
+}
+.cart-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+.cart-modal-continue {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--black);
+  background: white;
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+}
+.cart-modal-view {
+  flex: 1;
+  padding: 12px;
+  background: var(--black);
+  color: white;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+}
+
 /* CONFIRMATION */
 .confirmation-page {
   display: flex;

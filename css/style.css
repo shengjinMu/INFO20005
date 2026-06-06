@@ -1058,8 +1058,81 @@ footer {
   margin-top: 24px;
 }
 
-.checkout-form {
+.checkout-form-wrap {
   flex: 1;
+}
+
+.payment-accordion {
+  border: 1px solid #E8E8E3;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.payment-row {
+  border-bottom: 1px solid #E8E8E3;
+}
+
+.payment-row:last-child {
+  border-bottom: none;
+}
+
+.payment-row-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.payment-row.open .payment-row-header svg {
+  transform: rotate(180deg);
+}
+
+.payment-row-body {
+  display: none;
+  padding: 0 18px 20px;
+}
+
+.payment-row-body.open {
+  display: block;
+}
+
+.payment-panel-note {
+  font-size: 13px;
+  color: var(--grey);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn-applepay {
+  background-color: #888888;
+}
+
+.btn-paypal {
+  background-color: #0070ba;
+}
+
+.pay-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.pay-dot-apple  { background: #888888; }
+.pay-dot-credit { background: #000000; }
+.pay-dot-paypal { background: #0070ba; }
+
+.checkout-form {
   display: flex;
   flex-direction: column;
   gap: 10px;

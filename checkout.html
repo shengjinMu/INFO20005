@@ -40,43 +40,82 @@
     <h1 class="section-title checkout-title">Payment Detail</h1>
 
     <div class="checkout-layout">
-      <form class="checkout-form">
-        <label>Name on card</label>
-        <input type="text" placeholder="Cardholder Name" />
+      <div class="checkout-form-wrap">
+        <div class="payment-accordion">
 
-        <label>Card number</label>
-        <input type="text" placeholder="1234 1234 1234 1234" />
+          <!-- Apple Pay -->
+          <div class="payment-row">
+            <button class="payment-row-header" data-target="pane-applepay">
+              <span><span class="pay-dot pay-dot-apple"></span>Apple pay</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="payment-row-body" id="pane-applepay">
+              <p class="payment-panel-note">You will be redirected to Apple Pay to complete your purchase securely.</p>
+              <button type="button" class="btn-primary btn-applepay" onclick="window.location.href='confirmation.html'">PAY NOW</button>
+            </div>
+          </div>
 
-        <div class="checkout-row">
-          <div>
-            <label>CVV</label>
-            <input type="text" placeholder="123" />
+          <!-- Credit Card -->
+          <div class="payment-row open">
+            <button class="payment-row-header" data-target="pane-credit">
+              <span><span class="pay-dot pay-dot-credit"></span>Credit card</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="payment-row-body open" id="pane-credit">
+              <form class="checkout-form">
+                <label>Name on card</label>
+                <input type="text" placeholder="Cardholder Name" />
+
+                <label>Card number</label>
+                <input type="text" placeholder="1234 1234 1234 1234" />
+
+                <div class="checkout-row">
+                  <div>
+                    <label>CVV</label>
+                    <input type="text" placeholder="123" />
+                  </div>
+                  <div>
+                    <label>Expiry</label>
+                    <input type="text" placeholder="DD/MM/YY" />
+                  </div>
+                </div>
+
+                <label>Billing Address</label>
+                <input type="text" placeholder="Apt Number, Street Address" />
+
+                <div class="checkout-row">
+                  <div>
+                    <label>State</label>
+                    <input type="text" placeholder="VIC" />
+                  </div>
+                  <div>
+                    <label>Postcode</label>
+                    <input type="text" placeholder="3000" />
+                  </div>
+                </div>
+
+                <label>Email</label>
+                <input type="email" placeholder="example@email.com" />
+
+                <button type="button" class="btn-primary" onclick="window.location.href='confirmation.html'">PAY NOW</button>
+              </form>
+            </div>
           </div>
-          <div>
-            <label>Expiry</label>
-            <input type="text" placeholder="DD/MM/YY" />
+
+          <!-- PayPal -->
+          <div class="payment-row">
+            <button class="payment-row-header" data-target="pane-paypal">
+              <span><span class="pay-dot pay-dot-paypal"></span>Paypal</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="payment-row-body" id="pane-paypal">
+              <p class="payment-panel-note">You will be redirected to PayPal to complete your purchase securely.</p>
+              <button type="button" class="btn-primary btn-paypal" onclick="window.location.href='confirmation.html'">PAY NOW</button>
+            </div>
           </div>
+
         </div>
-
-        <label>Billing Address</label>
-        <input type="text" placeholder="Apt Number, Street Address" />
-
-        <div class="checkout-row">
-          <div>
-            <label>State</label>
-            <input type="text" placeholder="VIC" />
-          </div>
-          <div>
-            <label>Postcode</label>
-            <input type="text" placeholder="3000" />
-          </div>
-        </div>
-
-        <label>Email</label>
-        <input type="email" placeholder="example@email.com" />
-
-        <button type="button" class="btn-primary" onclick="window.location.href='confirmation.html'">PAY NOW</button>
-      </form>
+      </div>
 
       <div class="checkout-summary">
         <div id="checkout-items"></div>
@@ -104,6 +143,7 @@
         </div>
       </div>
     </div>
+
   </main>
 
   <footer>
@@ -114,6 +154,21 @@
 
   <script src="js/main.js"></script>
   <script src="js/checkout.js"></script>
+  <script>
+    // Payment accordion
+    document.querySelectorAll('.payment-row-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const row = header.parentElement;
+        const isOpen = row.classList.contains('open');
+        document.querySelectorAll('.payment-row').forEach(r => r.classList.remove('open'));
+        document.querySelectorAll('.payment-row-body').forEach(b => b.classList.remove('open'));
+        if (!isOpen) {
+          row.classList.add('open');
+          document.getElementById(header.dataset.target).classList.add('open');
+        }
+      });
+    });
+  </script>
   <script>
     document.getElementById('promo-toggle').addEventListener('click', function() {
       const area = document.getElementById('promo-input-area');

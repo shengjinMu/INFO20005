@@ -82,7 +82,12 @@
       </div>
 
       <button class="btn-primary" id="add-to-cart-btn">ADD TO CART</button>
-      <p class="shipping-note">Free shipping on orders over $100</p>
+      <div class="accordion">
+        <button class="accordion-btn">Shipping <span>+</span></button>
+        <div class="accordion-content">
+          <p>Free shipping on orders over $100</p>
+        </div>
+      </div>
 
       <div class="accordion">
         <button class="accordion-btn">Product Details <span>+</span></button>
@@ -179,7 +184,7 @@
     });
     document.getElementById('add-to-cart-btn').addEventListener('click', () => {
       addToCart('walk1', 'Lead Navy', 80, 'images/walk1.png', qty);
-      window.location.href = 'cart.html';
+      showCartModal('Lead Navy');
     });
     document.querySelectorAll('.accordion-btn').forEach(btn => {
       btn.addEventListener('click', () => {

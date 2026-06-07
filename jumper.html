@@ -88,23 +88,26 @@
       <hr style="border:none;border-top:1px solid #E8E8E3;">
 
       <p class="label">Size</p>
-      <div class="size-options">
-        <button>XXS</button>
-        <button>XS</button>
-        <button>S</button>
-        <button>M</button>
-        <button>L</button>
-        <button>XL</button>
-      </div>
+      <select class="size-select" id="size-select">
+        <option value="">Select a size</option>
+        <option value="XXS">XXS</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
 
-      <p class="label" style="margin-top: 12px;">Quantity</p>
+      <p class="label">Quantity</p>
       <div class="quantity-selector">
         <button class="qty-btn" id="qty-minus">−</button>
         <span id="qty-value">1</span>
         <button class="qty-btn" id="qty-plus">+</button>
       </div>
 
-      <button class="btn-primary">ADD TO CART</button>
+      <button class="btn-primary" id="add-to-cart-btn">ADD TO CART</button>
+      <button class="btn-applepay-product" id="applepay-btn">Buy with Apple Pay</button>
+      <p class="more-payment-link"><a id="more-payment-btn">More payment options</a></p>
       <div class="accordion">
         <button class="accordion-btn">Shipping <span>+</span></button>
         <div class="accordion-content">

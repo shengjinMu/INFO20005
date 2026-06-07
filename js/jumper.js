@@ -14,16 +14,6 @@ document.querySelector('.slider-prev').addEventListener('click', () => goTo(curr
 document.querySelector('.slider-next').addEventListener('click', () => goTo(current + 1));
 dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-const sizeButtons = document.querySelectorAll('.size-options button');
-let selectedSize = 'M';
-sizeButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    sizeButtons.forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    selectedSize = btn.textContent;
-  });
-});
-
 let qty = 1;
 document.getElementById('qty-minus').addEventListener('click', () => {
   if (qty > 1) { qty--; document.getElementById('qty-value').textContent = qty; }
@@ -32,12 +22,25 @@ document.getElementById('qty-plus').addEventListener('click', () => {
   qty++; document.getElementById('qty-value').textContent = qty;
 });
 
-document.querySelector('.btn-primary').addEventListener('click', () => {
-  const sizeBtn = document.querySelector('.size-options .selected');
-  if (!sizeBtn) { alert('Please select a size.'); return; }
-  const size = sizeBtn.textContent;
+document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
   addToCart('jumper1', `Classic Knit Jumper (${size})`, 55, 'images/jumper1.png', qty);
   showCartModal(`Classic Knit Jumper (${size})`);
+});
+
+document.getElementById('applepay-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
+  addToCart('jumper1', `Classic Knit Jumper (${size})`, 55, 'images/jumper1.png', qty);
+  window.location.href = 'checkout.html#applepay';
+});
+
+document.getElementById('more-payment-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
+  addToCart('jumper1', `Classic Knit Jumper (${size})`, 55, 'images/jumper1.png', qty);
+  window.location.href = 'checkout.html';
 });
 
 document.querySelectorAll('.accordion-btn').forEach(btn => {

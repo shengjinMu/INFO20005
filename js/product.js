@@ -1,11 +1,3 @@
-// Size selection
-document.querySelectorAll('.size-options button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.size-options button').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-  });
-});
-
 // Accordion
 document.querySelectorAll('.accordion-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -30,10 +22,23 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 });
 
 // Add to cart
-document.querySelector('.btn-primary').addEventListener('click', () => {
-  const sizeBtn = document.querySelector('.size-options .selected');
-  if (!sizeBtn) { alert('Please select a size.'); return; }
-  const size = sizeBtn.textContent;
+document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
   addToCart('product4', `Tactical Harness Vest (${size})`, 72, 'images/product4.png', qty);
   showCartModal(`Tactical Harness Vest (${size})`);
+});
+
+document.getElementById('applepay-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
+  addToCart('product4', `Tactical Harness Vest (${size})`, 72, 'images/product4.png', qty);
+  window.location.href = 'checkout.html#applepay';
+});
+
+document.getElementById('more-payment-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
+  addToCart('product4', `Tactical Harness Vest (${size})`, 72, 'images/product4.png', qty);
+  window.location.href = 'checkout.html';
 });

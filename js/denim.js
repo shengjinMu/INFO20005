@@ -15,14 +15,6 @@ document.querySelector('.slider-prev').addEventListener('click', () => goTo(curr
 document.querySelector('.slider-next').addEventListener('click', () => goTo(current + 1));
 dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-// Size selection
-document.querySelectorAll('.size-options button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.size-options button').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-  });
-});
-
 // Accordion
 document.querySelectorAll('.accordion-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -43,10 +35,23 @@ document.getElementById('qty-plus').addEventListener('click', () => {
 });
 
 // Add to cart
-document.querySelector('.btn-primary').addEventListener('click', () => {
-  const sizeBtn = document.querySelector('.size-options .selected');
-  if (!sizeBtn) { alert('Please select a size.'); return; }
-  const size = sizeBtn.textContent;
+document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
   addToCart('product3', `Distressed Denim Vest (${size})`, 68, 'images/product3.png', qty);
   showCartModal(`Distressed Denim Vest (${size})`);
+});
+
+document.getElementById('applepay-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
+  addToCart('product3', `Distressed Denim Vest (${size})`, 68, 'images/product3.png', qty);
+  window.location.href = 'checkout.html#applepay';
+});
+
+document.getElementById('more-payment-btn').addEventListener('click', () => {
+  const size = document.getElementById('size-select').value;
+  if (!size) { alert('Please select a size.'); return; }
+  addToCart('product3', `Distressed Denim Vest (${size})`, 68, 'images/product3.png', qty);
+  window.location.href = 'checkout.html';
 });

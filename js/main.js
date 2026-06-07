@@ -127,30 +127,37 @@ function addToCart(id, name, price, image, qty = 1) {
   saveCart(cart);
 }
 
-// Cart added modal
-const cartModalOverlay = document.createElement('div');
-cartModalOverlay.className = 'cart-modal-overlay';
-cartModalOverlay.innerHTML = `
-  <div class="cart-modal">
-    <p class="cart-modal-check">✓</p>
-    <p class="cart-modal-title">Added to cart</p>
-    <p class="cart-modal-item" id="cart-modal-item"></p>
-    <div class="cart-modal-actions">
-      <button class="cart-modal-continue">Continue Shopping</button>
-      <button class="cart-modal-view">View Cart</button>
-    </div>
-  </div>
+// Cart toast
+const cartToast = document.createElement('div');
+cartToast.className = 'cart-toast';
+cartToast.innerHTML = `
+  <span class="cart-toast-msg">✓ <span id="cart-toast-name"></span> added</span>
+  <a class="cart-toast-link" href="cart.html">View Cart →</a>
 `;
-document.body.appendChild(cartModalOverlay);
-cartModalOverlay.querySelector('.cart-modal-continue').addEventListener('click', () => {
-  cartModalOverlay.classList.remove('open');
-});
-cartModalOverlay.querySelector('.cart-modal-view').addEventListener('click', () => {
-  window.location.href = 'cart.html';
-});
+document.body.appendChild(cartToast);
 
+let toastTimer;
 function showCartModal(name) {
-  document.getElementById('cart-modal-item').textContent = name;
-  cartModalOverlay.classList.add('open');
+  document.getElementById('cart-toast-name').textContent = name;
+  cartToast.classList.add('show');
   updateCartBadge();
+  const badge = document.getElementById('cart-badge');
+  if (badge) {
+    badge.classList.remove('badge-bounce');
+    void badge.offsetWidth;
+    badge.classList.add('badge-bounce');
+  }
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => cartToast.classList.remove('show'), 2500);
 }
+
+// Scroll fade-in
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));

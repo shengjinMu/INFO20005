@@ -37,7 +37,7 @@
   </nav>
 
   <main class="checkout-page">
-    <h1 class="section-title checkout-title">Payment Detail</h1>
+    <h1 class="checkout-title">Payment Detail</h1>
 
     <div class="checkout-layout">
       <div class="checkout-form-wrap">
@@ -168,6 +168,14 @@
         }
       });
     });
+
+    // Auto-open Apple Pay if coming from product page
+    if (window.location.hash === '#applepay') {
+      document.querySelectorAll('.payment-row').forEach(r => r.classList.remove('open'));
+      document.querySelectorAll('.payment-row-body').forEach(b => b.classList.remove('open'));
+      document.querySelector('[data-target="pane-applepay"]').parentElement.classList.add('open');
+      document.getElementById('pane-applepay').classList.add('open');
+    }
   </script>
   <script>
     document.getElementById('promo-toggle').addEventListener('click', function() {

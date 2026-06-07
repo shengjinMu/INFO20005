@@ -82,6 +82,8 @@
       </div>
 
       <button class="btn-primary" id="add-to-cart-btn">ADD TO CART</button>
+      <button class="btn-applepay-product" id="applepay-btn">Buy with Apple Pay</button>
+      <p class="more-payment-link"><a id="more-payment-btn">More payment options</a></p>
       <div class="accordion">
         <button class="accordion-btn">Shipping <span>+</span></button>
         <div class="accordion-content">
@@ -131,6 +133,7 @@
 
   <section class="recommended">
     <h2 class="section-title">You May Also Like</h2>
+    <p class="typing-subtitle" id="typing-subtitle"></p>
     <div class="products">
       <a href="#" class="product-card">
         <div class="product-img">
@@ -175,6 +178,19 @@
 
   <script src="js/main.js"></script>
   <script>
+    const phrases = ['Curated just for you.', 'You might love this.', 'Picked with care.', 'Also worth a look.'];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typing-subtitle');
+    function type() {
+      const word = phrases[pi];
+      el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
+      if (!deleting && ci > word.length) { deleting = true; setTimeout(type, 1400); return; }
+      if (deleting && ci < 0) { deleting = false; pi = (pi + 1) % phrases.length; ci = 0; }
+      setTimeout(type, deleting ? 40 : 80);
+    }
+    type();
+  </script>
+  <script>
     let qty = 1;
     document.getElementById('qty-minus').addEventListener('click', () => {
       if (qty > 1) { qty--; document.getElementById('qty-value').textContent = qty; }
@@ -185,6 +201,14 @@
     document.getElementById('add-to-cart-btn').addEventListener('click', () => {
       addToCart('walk1', 'Lead Navy', 80, 'images/walk1.png', qty);
       showCartModal('Lead Navy');
+    });
+    document.getElementById('applepay-btn').addEventListener('click', () => {
+      addToCart('walk1', 'Lead Navy', 80, 'images/walk1.png', qty);
+      window.location.href = 'checkout.html#applepay';
+    });
+    document.getElementById('more-payment-btn').addEventListener('click', () => {
+      addToCart('walk1', 'Lead Navy', 80, 'images/walk1.png', qty);
+      window.location.href = 'checkout.html';
     });
     document.querySelectorAll('.accordion-btn').forEach(btn => {
       btn.addEventListener('click', () => {

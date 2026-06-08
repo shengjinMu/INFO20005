@@ -62,42 +62,48 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="payment-row-body open" id="pane-credit">
-              <form class="checkout-form">
+              <form class="checkout-form" id="credit-card-form">
                 <label>Name on card</label>
-                <input type="text" placeholder="Cardholder Name" />
+                <div style="position:relative">
+                  <input type="text" id="card-name" placeholder="Cardholder Name" autocomplete="off" />
+                  <div class="autofill-suggestion" id="autofill-suggestion">
+                    <div class="autofill-option" id="autofill-option">Shengjin Mu</div>
+                  </div>
+                </div>
 
                 <label>Card number</label>
-                <input type="text" placeholder="1234 1234 1234 1234" />
+                <input type="text" id="card-number" placeholder="1234 1234 1234 1234" />
 
                 <div class="checkout-row">
                   <div>
                     <label>CVV</label>
-                    <input type="text" placeholder="123" />
+                    <input type="text" id="card-cvv" placeholder="123" />
                   </div>
                   <div>
                     <label>Expiry</label>
-                    <input type="text" placeholder="DD/MM/YY" />
+                    <input type="text" id="card-expiry" placeholder="DD/MM/YY" />
                   </div>
                 </div>
 
                 <label>Billing Address</label>
-                <input type="text" placeholder="Apt Number, Street Address" />
+                <input type="text" id="card-address" placeholder="Apt Number, Street Address" />
 
                 <div class="checkout-row">
                   <div>
                     <label>State</label>
-                    <input type="text" placeholder="VIC" />
+                    <input type="text" id="card-state" placeholder="VIC" />
                   </div>
                   <div>
                     <label>Postcode</label>
-                    <input type="text" placeholder="3000" />
+                    <input type="text" id="card-postcode" placeholder="3000" />
                   </div>
                 </div>
 
                 <label>Email</label>
-                <input type="email" placeholder="example@email.com" />
+                <input type="email" id="card-email" placeholder="example@email.com" />
+                <p class="form-error" id="form-error"></p>
 
-                <button type="button" class="btn-primary" onclick="window.location.href='confirmation.html'">PAY NOW</button>
+                <button type="button" class="btn-primary" id="pay-now-btn">PAY NOW</button>
               </form>
             </div>
           </div>
@@ -154,6 +160,53 @@
 
   <script src="js/main.js"></script>
   <script src="js/checkout.js"></script>
+  <script>
+    // Autofill suggestion
+    const nameInput = document.getElementById('card-name');
+    const suggestion = document.getElementById('autofill-suggestion');
+    nameInput.addEventListener('focus', () => suggestion.classList.add('show'));
+    nameInput.addEventListener('blur', () => setTimeout(() => suggestion.classList.remove('show'), 200));
+    document.getElementById('autofill-option').addEventListener('click', () => {
+      document.getElementById('card-name').value = 'Shengjin Mu';
+      document.getElementById('card-number').value = '4242 4242 4242 4242';
+      document.getElementById('card-cvv').value = '123';
+      document.getElementById('card-expiry').value = '12/27';
+      document.getElementById('card-address').value = '24/250 Spencer Street';
+      document.getElementById('card-state').value = 'VIC';
+      document.getElementById('card-postcode').value = '3000';
+      document.getElementById('card-email').value = 'shengjin@pethaus.com';
+      suggestion.classList.remove('show');
+    });
+
+    // Credit card form validation
+    document.getElementById('pay-now-btn').addEventListener('click', function() {
+      const fields = [
+        { id: 'card-name',     label: 'Name on card' },
+        { id: 'card-number',   label: 'Card number' },
+        { id: 'card-cvv',      label: 'CVV' },
+        { id: 'card-expiry',   label: 'Expiry' },
+        { id: 'card-address',  label: 'Billing Address' },
+        { id: 'card-state',    label: 'State' },
+        { id: 'card-postcode', label: 'Postcode' },
+        { id: 'card-email',    label: 'Email' },
+      ];
+      const errorEl = document.getElementById('form-error');
+      const empty = fields.find(f => !document.getElementById(f.id).value.trim());
+      if (empty) {
+        errorEl.textContent = `Please enter your ${empty.label}.`;
+        document.getElementById(empty.id).focus();
+        return;
+      }
+      const email = document.getElementById('card-email').value;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        document.getElementById('card-email').focus();
+        return;
+      }
+      errorEl.textContent = '';
+      window.location.href = 'confirmation.html';
+    });
+  </script>
   <script>
     // Payment accordion
     document.querySelectorAll('.payment-row-header').forEach(header => {

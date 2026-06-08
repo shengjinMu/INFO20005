@@ -42,6 +42,15 @@ function renderCart() {
   totalEl.textContent = `$${total}.00 AUD`;
 }
 
+function bounceBadge() {
+  const badge = document.getElementById('cart-badge');
+  if (badge) {
+    badge.classList.remove('badge-bounce');
+    void badge.offsetWidth;
+    badge.classList.add('badge-bounce');
+  }
+}
+
 function changeQty(index, delta) {
   const cart = getCart();
   cart[index].qty += delta;
@@ -49,6 +58,7 @@ function changeQty(index, delta) {
   saveCart(cart);
   renderCart();
   updateCartBadge();
+  bounceBadge();
 }
 
 function removeItem(index) {
@@ -57,6 +67,7 @@ function removeItem(index) {
   saveCart(cart);
   renderCart();
   updateCartBadge();
+  bounceBadge();
 }
 
 renderCart();

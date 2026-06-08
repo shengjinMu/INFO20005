@@ -1295,6 +1295,7 @@ footer {
   display: flex;
   gap: 12px;
   align-items: center;
+  padding-top: 14px;
   padding-bottom: 14px;
   border-bottom: 1px solid #E8E8E3;
 }

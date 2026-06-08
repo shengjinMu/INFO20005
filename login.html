@@ -75,22 +75,34 @@
       <!-- SIGN IN -->
       <form class="login-form" id="form-login">
         <label>Email</label>
-        <input type="email" placeholder="example@email.com" />
+        <div style="position:relative">
+          <input type="email" id="signin-email" placeholder="example@email.com" autocomplete="off" />
+          <div class="autofill-suggestion" id="signin-suggestion">
+            <div class="autofill-option" id="signin-autofill">shengjin@pethaus.com</div>
+          </div>
+        </div>
         <label>Password</label>
-        <input type="password" placeholder="••••••••" />
+        <input type="password" id="signin-password" placeholder="••••••••" />
+        <p class="form-error" id="signin-error"></p>
         <button type="button" class="btn-primary" id="signin-btn">SIGN IN</button>
       </form>
 
       <!-- REGISTER -->
       <form class="login-form" id="form-register" style="display:none">
         <label>Full Name</label>
-        <input type="text" placeholder="Your Name" />
+        <div style="position:relative">
+          <input type="text" id="reg-name" placeholder="Your Name" autocomplete="off" />
+          <div class="autofill-suggestion" id="reg-suggestion">
+            <div class="autofill-option" id="reg-autofill">Shengjin Mu</div>
+          </div>
+        </div>
         <label>Email</label>
-        <input type="email" placeholder="example@email.com" />
+        <input type="email" id="reg-email" placeholder="example@email.com" />
         <label>Password</label>
-        <input type="password" placeholder="••••••••" />
+        <input type="password" id="reg-password" placeholder="••••••••" />
         <label>Confirm Password</label>
-        <input type="password" placeholder="••••••••" />
+        <input type="password" id="reg-confirm" placeholder="••••••••" />
+        <p class="form-error" id="register-error"></p>
         <button type="button" class="btn-primary" id="register-btn">CREATE ACCOUNT</button>
       </form>
 
@@ -112,13 +124,59 @@
       document.getElementById('tab-register').classList.toggle('active', tab === 'register');
     }
 
+    // Sign in autofill
+    const signinEmail = document.getElementById('signin-email');
+    const signinSuggestion = document.getElementById('signin-suggestion');
+    signinEmail.addEventListener('focus', () => signinSuggestion.classList.add('show'));
+    signinEmail.addEventListener('blur', () => setTimeout(() => signinSuggestion.classList.remove('show'), 200));
+    document.getElementById('signin-autofill').addEventListener('click', () => {
+      signinEmail.value = 'shengjin@pethaus.com';
+      document.getElementById('signin-password').value = 'pethaus2026';
+      signinSuggestion.classList.remove('show');
+    });
+
+    // Sign in validation
     document.getElementById('signin-btn').addEventListener('click', function() {
+      const email = document.getElementById('signin-email').value.trim();
+      const password = document.getElementById('signin-password').value.trim();
+      const error = document.getElementById('signin-error');
+      if (!email) { error.textContent = 'Please enter your email.'; return; }
+      if (!password) { error.textContent = 'Please enter your password.'; return; }
+      error.textContent = '';
       this.textContent = 'SIGNED IN ✓';
+      this.style.background = '#2e7d32';
+      this.style.color = 'white';
       setTimeout(() => window.location.href = 'index.html', 800);
     });
 
+    // Register autofill
+    const regName = document.getElementById('reg-name');
+    const regSuggestion = document.getElementById('reg-suggestion');
+    regName.addEventListener('focus', () => regSuggestion.classList.add('show'));
+    regName.addEventListener('blur', () => setTimeout(() => regSuggestion.classList.remove('show'), 200));
+    document.getElementById('reg-autofill').addEventListener('click', () => {
+      document.getElementById('reg-name').value = 'Shengjin Mu';
+      document.getElementById('reg-email').value = 'shengjin@pethaus.com';
+      document.getElementById('reg-password').value = 'pethaus2026';
+      document.getElementById('reg-confirm').value = 'pethaus2026';
+      regSuggestion.classList.remove('show');
+    });
+
+    // Register validation
     document.getElementById('register-btn').addEventListener('click', function() {
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value.trim();
+      const confirm = document.getElementById('reg-confirm').value.trim();
+      const error = document.getElementById('register-error');
+      if (!name) { error.textContent = 'Please enter your full name.'; return; }
+      if (!email) { error.textContent = 'Please enter your email.'; return; }
+      if (!password) { error.textContent = 'Please enter a password.'; return; }
+      if (password !== confirm) { error.textContent = 'Passwords do not match.'; return; }
+      error.textContent = '';
       this.textContent = 'ACCOUNT CREATED ✓';
+      this.style.background = '#2e7d32';
+      this.style.color = 'white';
       setTimeout(() => window.location.href = 'index.html', 800);
     });
   </script>

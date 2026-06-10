@@ -56,6 +56,7 @@ nav button {
   border: none;
   cursor: pointer;
   padding: 4px;
+  color: var(--black);
 }
 
 /* SIDE MENU */
@@ -807,6 +808,7 @@ footer {
   font-family: var(--font-body);
   font-size: 14px;
   cursor: pointer;
+  color: var(--black);
 }
 
 .accordion-content {
